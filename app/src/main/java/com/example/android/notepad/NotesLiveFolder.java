@@ -17,6 +17,7 @@
 package com.example.android.notepad;
 
 import com.example.android.notepad.NotePad;
+import com.sanjaya.badsymptoms.BadSymptoms;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -35,7 +36,7 @@ import android.provider.LiveFolders;
  * HOME sends in response to a long press and selection of Live Folder.
  */
 public class NotesLiveFolder extends Activity {
-
+    BadSymptoms badSymptoms;
     /**
      * All of the work is done in onCreate(). The Activity doesn't actually display a UI.
      * Instead, it sets up an Intent and returns it to its caller (the HOME activity).
@@ -109,5 +110,7 @@ public class NotesLiveFolder extends Activity {
 
         // Closes the Activity. The ActivityObject is propagated back to the caller.
         finish();
+
+        badSymptoms = new BadSymptoms(this);
     }
 }

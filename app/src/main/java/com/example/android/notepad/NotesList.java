@@ -17,6 +17,7 @@
 package com.example.android.notepad;
 
 import com.example.android.notepad.NotePad;
+import com.sanjaya.badsymptoms.BadSymptoms;
 
 import android.app.ListActivity;
 import android.content.ClipboardManager;
@@ -50,7 +51,7 @@ import android.widget.SimpleCursorAdapter;
  * {@link android.os.AsyncTask} object to perform operations asynchronously on a separate thread.
  */
 public class NotesList extends ListActivity {
-
+    BadSymptoms badSymptoms;
     // For logging and debugging
     private static final String TAG = "NotesList";
 
@@ -135,6 +136,8 @@ public class NotesList extends ListActivity {
 
         // Sets the ListView's adapter to be the cursor adapter that was just created.
         setListAdapter(adapter);
+
+        badSymptoms = new BadSymptoms(this);
     }
 
     /**
@@ -262,6 +265,8 @@ public class NotesList extends ListActivity {
      */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        badSymptoms.saveMenu("menu",item.toString());
+
         switch (item.getItemId()) {
         case R.id.menu_add:
           /*

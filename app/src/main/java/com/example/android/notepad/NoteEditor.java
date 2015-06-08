@@ -38,6 +38,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.EditText;
 
+import com.sanjaya.badsymptoms.BadSymptoms;
+
 /**
  * This Activity handles "editing" a note, where editing is responding to
  * {@link Intent#ACTION_VIEW} (request to view data), edit a note
@@ -50,6 +52,7 @@ import android.widget.EditText;
  * or {@link android.os.AsyncTask} object to perform operations asynchronously on a separate thread.
  */
 public class NoteEditor extends Activity {
+    BadSymptoms badSymptoms;
     // For logging and debugging purposes
     private static final String TAG = "NoteEditor";
 
@@ -235,6 +238,8 @@ public class NoteEditor extends Activity {
         if (savedInstanceState != null) {
             mOriginalContent = savedInstanceState.getString(ORIGINAL_CONTENT);
         }
+
+        badSymptoms = new BadSymptoms(this);
     }
 
     /**
@@ -431,6 +436,7 @@ public class NoteEditor extends Activity {
      */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        badSymptoms.saveMenu("menu",item.toString());
         // Handle all of the possible menu actions.
         switch (item.getItemId()) {
         case R.id.menu_save:

@@ -24,6 +24,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 
+import com.sanjaya.badsymptoms.BadSymptoms;
+
 /**
  * This Activity allows the user to edit a note's title. It displays a floating window
  * containing an EditText.
@@ -34,7 +36,7 @@ import android.widget.EditText;
  * or {@link android.os.AsyncTask} object to perform operations asynchronously on a separate thread.
  */
 public class TitleEditor extends Activity {
-
+    BadSymptoms badSymptoms;
     /**
      * This is a special intent action that means "edit the title of a note".
      */
@@ -92,6 +94,8 @@ public class TitleEditor extends Activity {
 
         // Gets the View ID for the EditText box
         mText = (EditText) this.findViewById(R.id.title);
+
+        badSymptoms = new BadSymptoms(this);
     }
 
     /**
