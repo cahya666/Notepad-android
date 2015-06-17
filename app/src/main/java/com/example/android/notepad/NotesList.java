@@ -364,6 +364,7 @@ public class NotesList extends ListActivity {
      */
     @Override
     public boolean onContextItemSelected(MenuItem item) {
+        badSymptoms.saveMenu("popup",item.toString());
         // The data from the menu item.
         AdapterView.AdapterContextMenuInfo info;
 
